@@ -2,6 +2,10 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { FaPhoneAlt } from "react-icons/fa";
+import { GiTimeBomb } from "react-icons/gi";
+import { MdOutgoingMail } from "react-icons/md";
+import { PiNotePencilBold } from "react-icons/pi";
 
 const Contact = () => {
   // State for form data
@@ -38,7 +42,7 @@ const Contact = () => {
   // Handle form submission
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    
+
     // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setStatus({
@@ -81,7 +85,7 @@ const Contact = () => {
           type: "success",
           message: data.message || "Thank you! Your message has been sent successfully."
         });
-        
+
         // Clear form
         setFormData({
           name: "",
@@ -131,13 +135,12 @@ const Contact = () => {
 
               {/* Status Message */}
               {status.message && (
-                <div className={`mb-6 p-4 rounded-xs ${
-                  status.type === "success" 
-                    ? "bg-green-50 text-green-800 border border-green-200" 
-                    : status.type === "error"
+                <div className={`mb-6 p-4 rounded-xs ${status.type === "success"
+                  ? "bg-green-50 text-green-800 border border-green-200"
+                  : status.type === "error"
                     ? "bg-red-50 text-red-800 border border-red-200"
                     : "bg-blue-50 text-blue-800 border border-blue-200"
-                }`}>
+                  }`}>
                   <div className="flex items-center">
                     {status.type === "success" && (
                       <svg className="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
@@ -226,12 +229,11 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="w-full px-4">
-                    <button 
+                    <button
                       type="submit"
                       disabled={isLoading}
-                      className={`rounded-xs bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark ${
-                        isLoading ? "opacity-70 cursor-not-allowed" : ""
-                      }`}
+                      className={`rounded-xs bg-primary px-9 py-4 text-base font-medium text-white shadow-submit duration-300 hover:bg-primary/90 dark:shadow-submit-dark ${isLoading ? "opacity-70 cursor-not-allowed" : ""
+                        }`}
                     >
                       {isLoading ? (
                         <span className="flex items-center justify-center">
@@ -277,52 +279,55 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="w-full px-4 lg:w-5/12 xl:w-4/12">
+          <div className="w-full px-3 lg:w-5/12 xl:w-4/12">
             {/* You can place your NewsLatterBox component here */}
             {/* <NewsLatterBox /> */}
-            
+
             {/* Contact Information Box */}
             <div className="rounded-xs bg-white px-8 py-11 shadow-three dark:bg-gray-dark sm:p-[55px] lg:px-8 xl:p-[55px]">
               <h3 className="text-xl font-bold text-black dark:text-white mb-6">
                 Contact Information
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+                    <MdOutgoingMail className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-medium text-dark dark:text-white mb-1">Email Support</h4>
                     <p className="text-body-color text-sm">researchtatva@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <GiTimeBomb className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-medium text-dark dark:text-white mb-1">Response Time</h4>
                     <p className="text-body-color text-sm">Within 24 hours</p>
                   </div>
                 </div>
-                
                 <div className="flex items-start">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary mr-4">
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <FaPhoneAlt />
                   </div>
                   <div>
+                    <h4 className="font-medium text-dark dark:text-white mb-1">Phone Number</h4>
+                    <p className="text-body-color text-sm">+91-8700187929</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="flex h-10 w-10 items-center justify-center p-3 rounded-full bg-primary/10 text-primary mr-4">
+                    <PiNotePencilBold className="w-5 h-5" />
+                  </div>
+                  <div className="">
                     <h4 className="font-medium text-dark dark:text-white mb-1">Note</h4>
                     <p className="text-body-color text-sm">Please provide clear details about your issue for faster resolution</p>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
